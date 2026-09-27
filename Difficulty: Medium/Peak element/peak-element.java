@@ -6,18 +6,16 @@ class Solution {
         while (left < right) {
             int mid = left + (right - left) / 2;
 
-            // Agar mid wala element apne aage wale element se chota hai,
-            // iska matlab hum uphill ja rahe hain aur peak RIGHT side mein hai.
+          
             if (arr[mid] < arr[mid + 1]) {
                 left = mid + 1;
             } 
-            // Agar mid bada ya barabar hai, toh peak mid khud ho sakta hai ya LEFT side mein hai.
+         
             else {
                 right = mid;
             }
         }
 
-        // Loop khatam hone par left aur right dono peak index par hi rukenge.
-        return left;
+        return left; // return index of the peak element 
     }
 }
