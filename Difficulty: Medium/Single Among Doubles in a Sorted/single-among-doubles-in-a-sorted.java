@@ -2,9 +2,9 @@ class Solution {
     int single(int[] arr) {
         
         // writing edge cases 
-        if(arr.length == 1)return arr[0];
-        if(arr[0] != arr[1]) return arr[0];
-        if(arr[arr.length-1] != arr[arr.length-2]) return arr[arr.length-1];
+        if(arr.length == 1)return arr[0]; // when there is only one element 
+        if(arr[0] != arr[1]) return arr[0]; // starting wlemet can't peak
+        if(arr[arr.length-1] != arr[arr.length-2]) return arr[arr.length-1]; // check last element peak or not 
         
         int left = 0,right = arr.length-1;
         
@@ -25,8 +25,8 @@ class Solution {
             int leftCount= first-left;
             int rightCount = right-second;
             
-            if(leftCount%2==0) left = mid+1;
-            else right = mid -1;
+            if(leftCount%2==0) left = mid+1; // move right i.e increaseing 
+            else right = mid -1; // move left i.e decreasing 
         }
         
         return 766; // to return any random values 
