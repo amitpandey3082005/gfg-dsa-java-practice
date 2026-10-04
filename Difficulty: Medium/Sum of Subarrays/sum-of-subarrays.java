@@ -1,14 +1,13 @@
 class Solution {
     public static int subarraySum(int[] arr) {
-        long totalSum = 0;
-        int n = arr.length;
-
-        for (int i = 0; i < n; i++) {
-            
-            long frequency = (long) (i + 1) * (n - i);
-            totalSum += arr[i] * frequency;
+        // creating variable to store sum 
+        long tsum = 0;
+        
+        for(int i=0;i<arr.length;i++){
+            long freq  = (i+1)*(arr.length-i);
+            tsum+=arr[i]*freq;
         }
-
-        return (int)totalSum;
+        
+        return (int)tsum;
     }
 }
