@@ -15,6 +15,6 @@ class Solution {
                 left++;
             }
         }
-        return false; // ekement noy found 
+        return false; // element not found 
     }
 }
