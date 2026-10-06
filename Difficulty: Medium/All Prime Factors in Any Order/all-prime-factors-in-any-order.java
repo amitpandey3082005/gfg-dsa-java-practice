@@ -20,6 +20,7 @@ class Solution {
         if(n > 2){
             list.add(n);
         }
+        
         return list;
     }
 }
