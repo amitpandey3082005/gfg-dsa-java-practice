@@ -6,14 +6,14 @@ class Solution {
       int j=0;
     
       while(n%2==0){
-          if(j==0){ list.add(2);j++;}
+          if(j==0){ list.add(2);j++;} // added checkpoint to remove duplicacy in prime factor 
           n/=2;
       }
       int temp=0;
       for(int i=3;i<=Math.sqrt(n);i++){
           
           while(n%i==0){
-              if(i!=temp){
+              if(i!=temp){ // used to avoid repeatation
                   list.add(i);
               }
               temp=i;
