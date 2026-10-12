@@ -1,40 +1,34 @@
-import java.util.Arrays;
-
 class Solution {
     public static char getMaxOccuringChar(String s) {
-        // Convert string to character array
-        char[] str = s.toCharArray();
-
-        // Sort the array so identical characters sit next to each other
-        Arrays.sort(str);
-
-        int i = 0, j = 0;
-        int maxFreq = Integer.MIN_VALUE; // Fixed capitalization (Freq)
-        char maxChar = str[0];
-
-        // Sliding window loop to count frequencies
-        while (i < str.length && j < str.length) {
-            if (str[i] == str[j]) {
-                j++; // Expand the window if characters match
-            } else {
-                int currFreq = j - i; // Calculate window size (frequency)
-
-                if (currFreq > maxFreq) {
-                    maxFreq = currFreq;
-                    maxChar = str[i];
+        
+       // converting string to array 
+       char[] str = s.toCharArray();
+       Arrays.sort(str); // sort array 
+       
+       // write the siding window logic on sorted array 
+       int i=0,j=0,maxFreq = Integer.MIN_VALUE;
+       char maxchar = str[0];
+       
+       while(i<str.length && j<str.length){
+            if(str[i]==str[j]){
+                j++;// if element same expand Window 
+            }else{
+                int currfreq = j-i; // when element are different calculate size of window 
+                if(currfreq > maxFreq){
+                    maxFreq = currfreq;
+                    maxchar = str[i];
                 }
-                i = j; // Move the window start pointer to the new character
+                i=j;// now bring both pointer at the same index 
             }
+       }
+       
+       // when the last element will be max char the 
+        int currfreq = j-i; // when element are different calculate size of window 
+        if(currfreq > maxFreq){
+            maxFreq = currfreq;
+            maxchar = str[str.length-1];
         }
-
-
-        int currFreq = j - i;
-        if (currFreq > maxFreq) {
-            maxFreq = currFreq;
-            maxChar = str[i];
-        }
-
-        // Return the character with the maximum frequency
-        return maxChar; 
+       
+       return maxchar;
     }
 }
