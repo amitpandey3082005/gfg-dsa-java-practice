@@ -1,0 +1,9 @@
+<h2><a href="https://www.geeksforgeeks.org/problems/predict-the-column/1">Column with Max 0s</a></h2><h3>Difficulty Level : Difficulty: Easy</h3><hr><div class="problems_problem_content__Xm_eO" style="--text-color: var(--problem-text-color);"><p><span style="font-size: 18px;">You are given a matrix <strong>mat[][]</strong> of size&nbsp;<strong>n</strong> <strong>×</strong>&nbsp;<strong>n</strong> consisting only of <strong>0</strong>s and <strong>1</strong>s. Your task is to find the index of the column that contains the <strong>maximum </strong>number of 0s.</span></p><p><span style="font-size: 18px;">If more than one column has the same maximum number of 0s, return the index of the leftmost such column.</span></p><p><span style="font-size: 18px;">If no column contains any 0 (i.e., all elements in the matrix are 1), return -1.</span></p><p><span style="font-size: 18px;"><strong>Examples:</strong></span></p><pre><span style="font-size: 18px;"><strong>Input: </strong>mat[][] = [[0, 0, 0],
+                [1, 0, 1],
+                [0, 1, 1]]
+<strong>Output: </strong>0
+<strong>Explanation: </strong>Columns 0 and 1 contain the same number of 0s; however, column 0 appears first, so the answer is 0.</span></pre><pre><span style="font-size: 18px;"><strong>Input: </strong>mat[][] = [[1, 1, 1],
+                [1, 1, 1],
+                [1, 1, 1]]
+<strong>Output: </strong>-1
+<strong>Explanation: </strong></span><span style="font-size: 18px;">Since no column contains any 0s, the answer is -1.</span></pre><p><span style="font-size: 18px;"><strong>Constraints:</strong><br>1 ≤ n ≤ 10<sup>3</sup><br>0 ≤ mat[i][j] ≤ 1</span></p></div><br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Arrays</code>&nbsp;<code>Matrix</code>&nbsp;
