@@ -5,7 +5,7 @@ A personal repository containing data structures and algorithms (DSA) coding sol
 ---
 
 ## 🚀 Progress & Stats
-* **Problems Solved:** 100+ Problems Solved ✅
+* **Problems Solved:** 150+ Problems Solved ✅
 * **Primary Language:** Java ☕
 * **Platform:** GeeksforGeeks (GFG) 🎯
 
