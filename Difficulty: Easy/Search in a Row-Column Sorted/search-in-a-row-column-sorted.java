@@ -1,20 +1,22 @@
 class Solution {
-    public boolean matSearch(int[][] mat, int x) {
-        int row = mat.length;
-        int col = mat[0].length;
+    public static boolean matSearch(int mat[][], int x) {
         
-        int left = 0;
-        int right = col - 1;
+        // counting the rows an columns 
+        int row = mat.length,col = mat[0].length;
+        int i=0,j=col-1; // start with top right corner element 
         
-        while(left<row && right>=0){
-            if(mat[left][right] == x){
-                return true;
-            }else if(mat[left][right]>x){
-                right--;
+        while(j>=0 && i<row){
+            if(mat[i][j]>x){
+                 // go to left 
+                 j--;
+            }else if(mat[i][j]<x){
+                // go to right 
+                i++;
             }else{
-                left++;
+                return true;
             }
         }
-        return false; // element not found 
+        
+        return false;
     }
 }
