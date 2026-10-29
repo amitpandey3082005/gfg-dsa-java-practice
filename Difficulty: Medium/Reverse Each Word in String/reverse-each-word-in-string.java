@@ -3,7 +3,7 @@ class Solution {
        // if string is empty 
        if(s==null) return " ";
        
-       // creating a string array 
+       // creating a string array by spliting with index 
        String[] str = s.trim().split("\\s+");
        StringBuilder ans = new StringBuilder();
        
@@ -14,7 +14,7 @@ class Solution {
            ans.append(res).append(" ");
        }
        
-       return ans.toString().trim();
+       return ans.toString().trim(); // to remove extra space trim is necessary 
     }
 }
 
