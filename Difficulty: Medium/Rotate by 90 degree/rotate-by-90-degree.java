@@ -1,24 +1,27 @@
 class Solution {
     public void rotateMatrix(int[][] mat) {
-        // calculating the tranpose
-        for(int i=1;i<mat.length;i++){ // row traverse 
-            for(int j=0;j<=i;j++){
+        int n = mat.length;
+
+        // 1. Find the transpose of the matrix (Aapka logic sahi hai)
+        for(int i = 0; i < n; i++) { 
+            for(int j = 0; j <= i; j++) {
                 int temp = mat[i][j];
                 mat[i][j] = mat[j][i];
                 mat[j][i] = temp;
             }
         }
-       // column swapping is used 
-       for(int j=0;j<mat[0].length;j++){
-           int rowStart=0,rowEnd=mat.length-1;
-           while(rowStart<=rowEnd){
-               int temp = mat[rowStart][j];
-               mat[rowStart][j] = mat[rowEnd][j];
-               mat[rowEnd][j] = temp;
-               rowStart++;
-               rowEnd--;
-           }
-       }
-       
+
+        int startRow = 0;
+        int endRow = n - 1;
+
+        while (startRow < endRow) {
+           // swap row 
+            int[] temp = mat[startRow];
+            mat[startRow] = mat[endRow];
+            mat[endRow] = temp;
+
+            startRow++;
+            endRow--;
+        }
     }
 }
