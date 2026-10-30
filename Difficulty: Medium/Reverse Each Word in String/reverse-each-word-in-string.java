@@ -1,20 +1,22 @@
 class Solution {
     public String reverseWords(String s) {
-       // if string is empty 
-       if(s==null) return " ";
+       // writing the edge Condition when string is empty 
+       if(s==null) return "";
        
-       // creating a string array by spliting with index 
-       String[] str = s.trim().split("\\s+");
+       // spliting the string based on tab and trim it 
+       String[] str = s.trim().split("\\s+"); // here + group multiple spaces 
        StringBuilder ans = new StringBuilder();
        
-       // traversingto the String array 
-       for(String ele: str){
+       // now traversing to the entire string array
+       for(String ele : str){
+           //creating another string builder 
            StringBuilder res = new StringBuilder();
-           res.append(ele).reverse();
+           res.append(ele).reverse(); // adding each element of the string array into res stringBuilder
+           // now adding res to the ans string builder 
            ans.append(res).append(" ");
        }
        
-       return ans.toString().trim(); // to remove extra space trim is necessary 
+       return ans.toString().trim();
     }
 }
 
