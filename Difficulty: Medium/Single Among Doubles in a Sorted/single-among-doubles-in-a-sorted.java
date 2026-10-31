@@ -3,7 +3,7 @@ class Solution {
         
         // writing edge cases 
         if(arr.length == 1)return arr[0]; // when there is only one element 
-        if(arr[0] != arr[1]) return arr[0]; // starting wlemet can't peak
+        if(arr[0] != arr[1]) return arr[0]; // starting 
         if(arr[arr.length-1] != arr[arr.length-2]) return arr[arr.length-1]; // check last element peak or not 
         
         int left = 0,right = arr.length-1;
@@ -16,8 +16,8 @@ class Solution {
             // identifying first and second occuence of the mid element  to check left and right distance 
             int first=mid,second=mid;
             if(arr[mid] == arr[mid-1]){
-                first = mid-1;
-            }else{ // arr[mid] == arr[mid+1]
+                first = mid-1;  
+            }else{ 
                 second= mid+1;
             }
             
