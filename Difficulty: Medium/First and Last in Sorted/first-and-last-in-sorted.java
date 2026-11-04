@@ -23,7 +23,7 @@ class Solution {
                 right--;
             }
         }
-
+        // check if list is empty then add -1 and -1 in the arrayList and finally return that list 
         if (list.isEmpty()) {
             list.add(-1);
             list.add(-1);
