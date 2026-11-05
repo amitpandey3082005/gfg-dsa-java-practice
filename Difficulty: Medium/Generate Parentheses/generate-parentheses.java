@@ -25,7 +25,7 @@ class Solution {
             return res;
         }
 
-        // total length 'n' है, तो pairs की संख्या 'n / 2' होगी
+        // for n we will have n/2 prenthesis
         generate(res, n / 2, 0, 0, "");
         return res;
     }
