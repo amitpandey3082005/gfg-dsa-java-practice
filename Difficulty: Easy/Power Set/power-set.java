@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 class Solution {
    
     public static ArrayList<String> subset(String ans, String s, int idx, ArrayList<String> list) {
