@@ -15,7 +15,7 @@ class Solution {
         // 1. Pick karne ka decision (Element ko sum me add kiya)
         boolean pick = checkSubset(arr, targetSum, currentSum + arr[idx], idx + 1);
 
-        // Agar pick karne se hi answer mil gaya, toh skip wala check karne ki zaroorat nahi
+        // if sum is eul to target sum then no need of skip 
         if (pick) return true;
 
         // 2. Skip karne ka decision (Element ko sum me add nahi kiya)
