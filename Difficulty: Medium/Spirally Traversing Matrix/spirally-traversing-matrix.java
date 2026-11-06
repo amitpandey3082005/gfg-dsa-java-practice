@@ -1,58 +1,54 @@
+import java.util.ArrayList;
 
 class Solution {
 
+    public static ArrayList<Integer> traverse(int[][] mat, ArrayList<Integer> res, int fc, int lc, int fr, int lr) {
+        
+        if (fr > lr || fc > lc) {
+            return res;
+        }
+
+        // 1. First Row: fc se lc tak (Saare elements include karne ke liye <= lc)
+        for (int i = fc; i <= lc; i++) {
+            res.add(mat[fr][i]);
+        }
+
+        // 2. Last Column: fr + 1 se lr tak (Duplicate top-right corner bachane ke liye fr+1)
+        for (int i = fr + 1; i <= lr; i++) {
+            res.add(mat[i][lc]);
+        }
+
+        // for single row print duplicate 
+        if (fr < lr) {
+            // 3. Last Row: lc - 1 se fc tak (Reverse direction)
+            for (int i = lc - 1; i >= fc; i--) {
+                res.add(mat[lr][i]);
+            }
+        }
+
+        // for single column to remove duplicate ading 
+        if (fc < lc) {
+            // 4. First Column: lr - 1 down to fr + 1 (Reverse direction)
+            for (int i = lr - 1; i > fr; i--) {
+                res.add(mat[i][fc]);
+            }
+        }
+
+        // Recursion call for inner matrix
+        return traverse(mat, res, fc + 1, lc - 1, fr + 1, lr - 1);
+    }
+
     public ArrayList<Integer> spirallyTraverse(int[][] mat) {
-
-        // creating array list to print spiral order 
-        ArrayList<Integer> ans = new ArrayList<>();
-
-        // Handle edge cases     
-        if (mat == null || mat.length == 0) {
-            return ans;
+        if (mat == null || mat.length == 0 || mat[0].length == 0) {
+            return new ArrayList<>();
         }
 
-        int fr = 0, lr = mat.length - 1; // fr and lr are first row and last row respectively 
-        int fc = 0, lc = mat[0].length - 1; // fc and lc are the first column and last column respectively 
+        int fr = 0;
+        int fc = 0;
+        int lr = mat.length - 1;
+        int lc = mat[0].length - 1;
 
-        while ((fr <= lr) && (fc <= lc)) {
-
-            // print first column to last column keeping row same 
-            for (int j = fc; j <= lc; j++) {
-                ans.add(mat[fr][j]);
-            }
-            fr++; // shift first row 
-
-            if (fr > lr || fc > lc) {
-                break;
-            }
-
-            // storing first row to last row 
-            for (int i = fr; i <= lr; i++) {
-                ans.add(mat[i][lc]);
-            }
-            lc--; // shift last column 
-
-            if (fr > lr || fc > lc) {
-                break;
-            }
-            // storing from lc to first column 
-            for (int j = lc; j >= fc; j--) {
-                ans.add(mat[lr][j]);
-            }
-            lr--; // shift last row 
-
-            if (fr > lr || fc > lc) {
-                break;
-            }
-
-            // storing from last row to first row 
-            for (int i = lr; i >= fr; i--) {
-                ans.add(mat[i][fc]);
-            }
-            fc++; // shifting the first column 
-
-        }
-
-        return ans;
+        ArrayList<Integer> res = new ArrayList<>();
+        return traverse(mat, res, fc, lc, fr, lr);
     }
 }
