@@ -26,7 +26,7 @@ class Solution {
         }
 
         // for n we will have n/2 prenthesis
-        generate(res, n / 2, 0, 0, "");
+        generate(res, n/2, 0, 0, "");
         return res;
     }
 }
