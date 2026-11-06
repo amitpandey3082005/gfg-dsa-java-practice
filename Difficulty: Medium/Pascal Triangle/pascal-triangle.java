@@ -1,18 +1,14 @@
-import java.util.ArrayList;
-
 class Solution {
     ArrayList<Integer> nthRowOfPascalTriangle(int n) {
-        ArrayList<Integer> row = new ArrayList<>();
-
-        long currentElement = 1; // because long has higherrange which preents integer overflow 
-        row.add((int) currentElement); // type cast int to float 
-
-        for (int i = 1; i < n; i++) {
-            // Formula: Prev * (n - i) / i
-            currentElement = currentElement * (n - i) / i;
-            row.add((int) currentElement);
+        // code here
+        ArrayList<Integer> res = new ArrayList<>();
+        long CurrEle = 1;
+        res.add((int)CurrEle);
+        
+        for(int i=1;i<n;i++){
+            CurrEle=(CurrEle*(n-i))/i;
+            res.add((int)CurrEle);
         }
-
-        return row;
+        return res;
     }
 }
