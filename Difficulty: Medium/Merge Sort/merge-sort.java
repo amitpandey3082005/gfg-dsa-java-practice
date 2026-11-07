@@ -1,46 +1,56 @@
 class Solution {
-    public static void merge(int[] arr1, int[] arr2, int[] res) {
-            int i = 0, j = 0, k = 0;
-            while (i < arr1.length && j < arr2.length) {
-                if (arr1[i] > arr2[j]) {
-                    res[k++] = arr2[j++];
-                } else {
-                    res[k++] = arr1[i++];
-                }
-            }
-            // when array 1 is gretaer
-            while (i < arr1.length) {
-                res[k++] = arr1[i++];
-            }
-            // when array 2 is greater
-            while (j < arr2.length) {
-                res[k++] = arr2[j++];
+    public static void merge(int[] arr, int l, int mid, int r) {
+        // 1. Calculate the sizes of the two subarrays to be merged
+        int n1 = mid - l + 1;
+        int n2 = r - mid;
+
+        // 2. Create temporary arrays using extra space
+        int[] arr1 = new int[n1];
+        int[] arr2 = new int[n2];
+
+        // 3. Copy data from the main array into the temporary arrays
+        for (int i = 0; i < n1; i++) {
+            arr1[i] = arr[l + i];
+        }
+        for (int j = 0; j < n2; j++) {
+            arr2[j] = arr[mid + 1 + j];
+        }
+
+        // 4. Merge the temporary arrays back into the original array arr[l..r]
+        int i = 0, j = 0;
+        int k = l; // k starts at the left boundary of the current subarray
+
+        while (i < n1 && j < n2) {
+            if (arr1[i] <= arr2[j]) {
+                arr[k++] = arr1[i++];
+            } else {
+                arr[k++] = arr2[j++];
             }
         }
 
-    public static void mergeSortAlgo(int[] arr){
-        int n = arr.length;
-        // Base case
-        if(n==1) return;
-        // step 1 create two empty array of size n and n-n/2
-        int[] a = new int[n/2];
-        int[] b = new int[n-n/2];
-        // step 2 copy element 
-        int idx=0;
-        for(int i=0;i<a.length;i++){
-          a[i] = arr[idx++];
+        // Copy remaining elements of arr1, if any
+        while (i < n1) {
+            arr[k++] = arr1[i++];
         }
-        for(int i=0;i<b.length;i++){
-          b[i] = arr[idx++];
+
+        // Copy remaining elements of arr2, if any
+        while (j < n2) {
+            arr[k++] = arr2[j++];
         }
-        // step 3 applu magic
-        mergeSortAlgo(a);
-        mergeSortAlgo(b);
-        // step 4 sort array 
-        merge(a,b,arr);
-        
     }
+
     public void mergeSort(int arr[], int l, int r) {
-       mergeSortAlgo(arr);
+        // Base case
+        if (l >= r) return;
+
+        // Find the middle point
+        int mid = l + (r - l) / 2;
+
+        // Sort first and second halves
+        mergeSort(arr, l, mid);
+        mergeSort(arr, mid + 1, r); 
+
+        // Merge the sorted halves
+        merge(arr, l, mid, r); 
     }
 }
