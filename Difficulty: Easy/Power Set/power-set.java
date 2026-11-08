@@ -1,26 +1,18 @@
 class Solution {
-   
-    public static ArrayList<String> subset(String ans, String s, int idx, ArrayList<String> list) {
-        // when Complete Scanning of Array is done 
-        if (idx == s.length()) {
-            list.add(ans); // Add ans into the arrayList 
-            return list;
+    public static ArrayList<String> subset(String ans,String s,ArrayList<String> res,int idx){
+        if(idx==s.length()){
+            res.add(ans);
+            return res;
         }
-
-        // Recursive Case
+        // recursive case 
         char ch = s.charAt(idx);
-
-        // 1. Pick the character (Include in answer)
-        subset(ans + ch, s, idx + 1, list); 
-
-        // 2. Skip the character (Exclude from answer)
-        subset(ans, s, idx + 1, list);
-
-        return list;
+        subset(ans+ch,s,res,idx+1); // pick the charecter 
+        subset(ans,s,res,idx+1); // skip charecter 
+        // return arraylist conatnibg all subset 
+        return res;
     }
-
     public ArrayList<String> powerSet(String s) {
         ArrayList<String> res = new ArrayList<>();
-        return subset("", s, 0, res);
+        return subset("",s,res,0);
     }
 }
