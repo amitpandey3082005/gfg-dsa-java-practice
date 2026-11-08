@@ -9,12 +9,12 @@ class Solution {
         while(i<s.length()){
             int j=i;
             while(j<s.length() && s.charAt(i)==s.charAt(j) ){
-               j++; 
+               j++; // expand Window 
             }
             int count = j-i;
             ans+=count;
             ans+=s.charAt(i);
-            i=j;
+            i=j; // reduce window
         }
         return ans;
     }
