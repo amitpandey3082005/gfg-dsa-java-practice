@@ -5,7 +5,7 @@ class Solution {
        while (left < right) {
            int mid = left + (right - left) / 2; 
 
-          
+           // calculate the missing number till mid index 
            int missing = arr[mid] - (mid + 1);
 
            if (missing < k) {
