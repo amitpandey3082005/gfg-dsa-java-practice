@@ -5,18 +5,17 @@ class Solution {
       ArrayList<Integer> res = new ArrayList<>();
       int i = 0;
 
-      // STEP 1: Cyclic Sort loop (ismein se res.add() bilkul hata diya hai)
+      // STEP 1: Cyclic Sort loop 
       while (i < arr.length) {
           if (arr[i] == i + 1) {
               i++;
           } else {
               int idx = arr[i] - 1;
 
-              // Agar duplicate element milta hai, toh swap nahi karenge, seedhe aage badhenge
+              // if find duplicate then increment only 
               if (arr[idx] == arr[i]) {
                   i++; 
-              } else {
-                  // Sahi jagah swap karein
+              } else { // swap at perfect place 
                   int temp = arr[i];
                   arr[i] = arr[idx];
                   arr[idx] = temp;
@@ -24,7 +23,7 @@ class Solution {
           }
       }
 
-      // STEP 2: Ab bas un elements ko res mein daalein jo apni sahi jagah par nahi hain
+      // now swap duplicate element only 
       for (int j = 0; j < arr.length; j++) {
           if (arr[j] != j + 1) {
               res.add(arr[j]);
