@@ -17,7 +17,8 @@ class Solution {
         // simply return newNode as head
         if (pos == 1) {
             newNode.next = head;
-            return newNode;
+            head = newNode;
+            return head;
         }
 
         Node temp = head;
