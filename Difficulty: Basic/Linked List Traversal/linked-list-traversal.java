@@ -12,7 +12,7 @@ class Node {
 
 class Solution {
     public ArrayList<Integer> printList(Node head) {
-        // logic
+        // logic to store node value in arraylist 
         ArrayList<Integer> res = new ArrayList<>();
         Node temp = head;
         while(temp!=null){
