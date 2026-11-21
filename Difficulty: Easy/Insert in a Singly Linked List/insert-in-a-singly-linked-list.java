@@ -9,29 +9,21 @@ class Node {
 } */
 class Solution {
     public Node insertPos(Node head, int pos, int val) {
-        // Negative position check
-        if (pos < 0) return head;
-
+        // creating new node 
         Node newNode = new Node(val);
-
-        // simply return newNode as head
-        if (pos == 1) {
-            newNode.next = head;
-            head = newNode;
-            return head;
-        }
-
         Node temp = head;
-        for (int i = 1; i < pos-1  && temp != null; i++) {
-            temp = temp.next;
+        if(pos<1){
+            return head;
+        } else if(pos == 1) {
+            newNode.next  = head;
+            head = newNode;
+        }else{
+          for(int i=1;i<pos-1 && temp.next !=null;i++){
+            temp = temp.next;            
+          }
+          newNode.next = temp.next;
+          temp.next = newNode;
         }
-
-        // Agar pos is greter than the size of linkedlist
-        if (temp == null) return head;
-
-        newNode.next = temp.next;
-        temp.next = newNode;
-
         return head;
     }
 }
