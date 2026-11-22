@@ -19,16 +19,22 @@ class Solution {
             size++;
             temp = temp.next;
         }
-        if(size%2==0){
-            for(int i=0;i<(size/2)-1;i++){
-                temp1 = temp1.next;
-            }
-            return temp1.next.data;
-        }else{
-             for(int i=0;i<(size/2)-1;i++){
-                temp1 = temp1.next;
-            }
-            return temp1.next.data;
-        }
+        
+         for(int i=0;i<(size/2)-1;i++){
+              temp1 = temp1.next;
+             }
+         return temp1.next.data;
+        
+        // if(size%2==0){
+        //     for(int i=0;i<(size/2)-1;i++){
+        //         temp1 = temp1.next;
+        //     }
+        //     return temp1.next.data;
+        // }else{
+        //      for(int i=0;i<(size/2)-1;i++){
+        //         temp1 = temp1.next;
+        //     }
+        //     return temp1.next.data;
+        // }
     }
 }
