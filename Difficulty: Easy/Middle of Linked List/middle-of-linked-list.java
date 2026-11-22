@@ -10,31 +10,17 @@ class Node {
 } */
 
 class Solution {
+    
     int getMiddle(Node head) {
-        // logic to get middle of the linked list 
-        Node temp = head;
-        Node temp1 = head;
-        int size =0;
-        while(temp !=null){
-            size++;
-            temp = temp.next;
+        Node slow = head;
+        Node fast = head;
+
+        // Jab tak fast aur uska agla node null na ho
+        while (fast != null && fast.next != null) {
+            slow = slow.next;          // 1 step
+            fast = fast.next.next;     // 2 steps
         }
-        
-         for(int i=0;i<(size/2)-1;i++){
-              temp1 = temp1.next;
-             }
-         return temp1.next.data;
-        
-        // if(size%2==0){
-        //     for(int i=0;i<(size/2)-1;i++){
-        //         temp1 = temp1.next;
-        //     }
-        //     return temp1.next.data;
-        // }else{
-        //      for(int i=0;i<(size/2)-1;i++){
-        //         temp1 = temp1.next;
-        //     }
-        //     return temp1.next.data;
-        // }
+
+        return slow.data; // Slow hamesha middle par hoga
     }
 }
