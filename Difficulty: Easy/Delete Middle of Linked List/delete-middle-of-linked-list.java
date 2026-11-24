@@ -10,24 +10,19 @@ class Node {
 
 class Solution {
     public Node deleteMid(Node head) {
-        // when linkelist has 1 node or empty 
-        if (head == null || head.next == null) {
+        // checking list empty or have single element
+        if(head==null || head.next==null){
             return null;
         }
-
+        Node prev = null;
         Node slow = head;
         Node fast = head;
-        Node prev = null; // store just previous node before middle
-
-        while (fast != null && fast.next != null) {
-            prev = slow;
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-
-        // Middle node delete
-        prev.next = slow.next;
-
-        return head;
+       while(fast !=null && fast.next !=null){
+           prev = slow;
+           slow = slow.next;
+           fast = fast.next.next;
+       }
+       prev.next = slow.next;
+       return head;
     }
 }
