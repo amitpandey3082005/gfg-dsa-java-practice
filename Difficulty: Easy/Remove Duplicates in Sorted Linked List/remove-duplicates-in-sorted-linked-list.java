@@ -22,7 +22,7 @@ class Solution {
                 i=j;   
             }
         }
-        i.next = j; // for 
+        i.next = j; // for last node repetation 
         return head;
     }
 }
